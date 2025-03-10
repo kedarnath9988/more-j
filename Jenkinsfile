@@ -11,9 +11,10 @@ pipeline {
                     sh 'echo this is ins the teat stage'
                 }
             }
-            stage ("deploy")
+            stage ("deploy"){
                 steps{
                     sh "echo this is in hte deploy stage"
                 }
+            }
         }
 }
