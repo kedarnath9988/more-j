@@ -1,19 +1,19 @@
-pipeline{
+pipeline {
     agent any 
         stages {
-            stage ("Build")
+            stage ("build"){
                 steps {
-                    sh 'echo is is Build stage'
+                    sh 'echo this is in the build stage'
                 }
-            
             }
             stage ("test"){
-                steps {
-                    sh 'echo is is test stage'
+                steps{
+                    sh 'echo this is ins the teat stage'
                 }
             }
-            stage ("prod")
-                stage {
-                    sh 'echo is is prod stage'
+            stage ("deploy")
+                steps{
+                    sh "echo this is in hte deploy stage"
                 }
         }
+}
