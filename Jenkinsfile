@@ -3,7 +3,7 @@ pipeline {
          label 'agent-02'
         }
      options {
-        timeout(time:30 units: 'sec' )
+        timeout(time:30 units: 'sec')
     }
         //node-02
         stages {
