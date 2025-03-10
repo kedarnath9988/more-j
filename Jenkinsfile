@@ -1,5 +1,11 @@
 pipeline {
-    agent any //node-02
+    agent {
+         label 'agent-02'
+        }
+     options {
+        timeout(time:30 units: 'sec' )
+    }
+        //node-02
         stages {
             stage ("build"){
                 steps {
