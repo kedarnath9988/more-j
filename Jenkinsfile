@@ -17,4 +17,3 @@ pipeline{
                     echo "this is the deploy stage"
                 }
         }
-}
