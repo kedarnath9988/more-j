@@ -1,0 +1,19 @@
+pipeline {
+    agent Node-01 
+    stages {
+        stage ('build'){
+            steps {
+                echo 'this is the buils stage'
+            }
+        }
+        stage ('test'){
+            steps{
+                echo 'this is the taet stage'
+            }
+        }
+        stage('deploy')
+            steps{
+                echo 'this is the deploy stage'
+            }
+    }
+}
