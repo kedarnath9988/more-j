@@ -43,7 +43,7 @@ pipeline{
                        """
                     }       
             }
-                }
+                
                 stage('destroy'){
                     input {
                       message "Should we continue?"
