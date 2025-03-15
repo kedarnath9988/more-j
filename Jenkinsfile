@@ -1,6 +1,6 @@
 pipeline{
         agent {
-            label 'lable-01'
+            label 'node-04'
         }
         options {
             timeout(time:30, unit:'MINUTES')
