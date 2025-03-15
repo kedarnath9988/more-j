@@ -63,6 +63,7 @@ pipeline{
 
 
                 }
+        }
         post {
             always {
                 echo 'i will run laways '
@@ -73,5 +74,5 @@ pipeline{
             }
             
         }
-                }
+                
 
