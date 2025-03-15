@@ -14,28 +14,29 @@ pipeline{
                 stage('init'){
                     steps{
                         sh """
-                            
+                        ls -ltr
+                        echo init 
                         """
                     }
                 }
                 stage('plan'){
                     steps {
                         sh """
-                       
+                       echo plan 
                         """
                     }
                 }
                 stage('apply'){
                     steps {
                         sh """
-                        
+                           echo apply 
                         """
                     }
                 }
                 stage('destroy'){
                     steps {
                         sh """
-                        
+                           echo destroy 
                         """
                     }
                 }
