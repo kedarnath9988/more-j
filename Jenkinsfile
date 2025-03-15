@@ -14,31 +14,28 @@ pipeline{
                 stage('init'){
                     steps{
                         sh """
-                        cd sg-01
-                        terraform init -reconfigure 
+                        echo this is init 
                         """
                     }
                 }
                 stage('plan'){
                     steps {
                         sh """
-                       cd sg-01
-                       terraform plan 
+                       echo this is plan 
                         """
                     }
                 }
                 stage('apply'){
                     steps {
                         sh """
-                           cd sg-01
-                           terraform apply -auto-approve 
+                          echo this is apply 
                         """
                     }
                 }
                 stage('destroy'){
                     steps {
                         sh """
-                          cd sg-01
+                          echo this is destroy 
                         """
                     }
                 }
