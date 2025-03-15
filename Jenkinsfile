@@ -15,7 +15,7 @@ pipeline{
                     steps{
                         sh """
                         
-                       
+                       echo this i sinit 
                         """
                     }
                 }
@@ -28,20 +28,21 @@ pipeline{
                 }
                 stage('apply'){
                     input {
-                message "Should we continue?"
-                ok "Yes, we should."
+                        message "Should we continue?"
+                        ok "Yes, we should."
                     }
-                    when {
+                     when {
                 expression { 
                     params.choice == 'apply'
                      }
-                
-                    steps {
+                     }
+                    steps{
                         sh """
-                          echo this is apply rescources are created 
+                        echo this is apply stage 
                         """
                     }
                 }
+                
                 stage('destroy'){
 
                      input {
@@ -71,4 +72,4 @@ pipeline{
             
         }
 
-}
+                }
