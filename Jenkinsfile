@@ -7,12 +7,15 @@ pipeline{
             disableConcurrentBuilds()
             ansiColor('xterm')
         }
+        parameters {
+            choice(name: 'terraform', choices: ['apply','destroy'], description: 'Pick something')
+        }
         stages {
                 stage('init'){
                     steps{
                         sh """
-                        cd sg-01
-                        terraform init -reconfigure 
+                        
+                       
                         """
                     }
                 }
@@ -24,16 +27,34 @@ pipeline{
                     }
                 }
                 stage('apply'){
+                    input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                    }
+                    when {
+                expression { 
+                    params.choice == 'apply'
+                     }
+                
                     steps {
                         sh """
-                          echo this is apply 
+                          echo this is apply rescources are created 
                         """
                     }
                 }
                 stage('destroy'){
+
+                     input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                    }
+                    when {
+                expression { 
+                    params.choice == 'destroy'
+                     }
                     steps {
                         sh """
-                          echo this is destroy 
+                          echo this is destroy resources are deleted 
                         """
                     }
                 }
@@ -42,7 +63,7 @@ pipeline{
         post {
             always {
                 echo 'i will run laways '
-                deleteDir()
+               
             }
             success {
                 echo 'pipeline is successfull'
