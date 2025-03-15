@@ -7,9 +7,6 @@ pipeline{
             disableConcurrentBuilds()
             ansiColor('xterm')
         }
-        parameters{
-            choice(name: 'terraform resorce', choices: ['apply','destroy'], description: 'create the resources or destroy')
-        }
         stages {
                 stage('init'){
                     steps{
