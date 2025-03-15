@@ -51,7 +51,7 @@ pipeline{
                     }
                     when {
                         expression {
-                            params.choice == 'apply'
+                            params.terraform == 'apply'
                      }
                          }  
                     steps{
