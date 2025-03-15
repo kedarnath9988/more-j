@@ -28,39 +28,41 @@ pipeline{
                 }
                 stage('apply'){
                     input {
-                        message "Should we continue?"
-                        ok "Yes, we should."
-                    }
-                     when {
-                expression { 
-                    params.choice == 'apply'
-                     }
-                     }
-                    steps{
-                        sh """
-                        echo this is apply stage 
-                        """
-                    }
-                }
-                
-                stage('destroy'){
-
-                     input {
-                message "Should we continue?"
-                ok "Yes, we should."
+                      message "Should we continue?"
+                      ok "Yes, we should."
                     }
                     when {
-                expression { 
-                    params.choice == 'destroy'
+                        expression {
+                            params.choice == 'apply'
                      }
-                    steps {
+                         }  
+                    steps{
                         sh """
-                          echo this is destroy resources are deleted 
-                        """
-                    }
+                            echo this is apply 
+                            we are creating the resources  
+                       """
+                    }       
+            }
                 }
+                stage('destroy'){
+                    input {
+                      message "Should we continue?"
+                      ok "Yes, we should."
+                    }
+                    when {
+                        expression {
+                            params.choice == 'apply'
+                     }
+                         }  
+                    steps{
+                        sh """
+                            echo this is destroy 
+                            we are creating the resources  
+                       """
+                    }
 
-        }
+
+                }
         post {
             always {
                 echo 'i will run laways '
@@ -73,4 +75,3 @@ pipeline{
         }
                 }
 
-}
